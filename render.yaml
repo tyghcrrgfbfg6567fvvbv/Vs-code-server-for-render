@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: vscode-server
+    env: docker
+    plan: free
+    autoDeploy: true
+    envVars:
+      - key: PASSWORD
+        value: mysecretpassword
+    ports:
+      - port: 8080
+        protocol: tcp
+        
