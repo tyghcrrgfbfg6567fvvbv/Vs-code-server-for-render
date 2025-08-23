@@ -1,0 +1,14 @@
+FROM codercom/code-server:latest
+
+# Install any extra tools you need inside VS Code
+RUN sudo apt update && sudo apt install -y git curl wget nano
+
+# Set a default password (better: use Render environment variables)
+ENV PASSWORD=changeme
+
+# Expose the default VS Code port
+EXPOSE 8080
+
+# Start code-server on port 8080
+CMD ["code-server", "--bind-addr", "0.0.0.0:8080", "--auth", "password", "/home/coder/project"]
+  
