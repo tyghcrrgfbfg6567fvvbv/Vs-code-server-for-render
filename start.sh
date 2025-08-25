@@ -14,7 +14,7 @@ export PATH=$HOME/.local/code-server/bin:$PATH
 # Render gives us $PORT automatically (default 10000)
 exec code-server \
   --bind-addr 0.0.0.0:${PORT:-10000} \
-  --auth none \
+  --auth PASSWORD \
   --disable-telemetry \
   --disable-update-check \
   .
