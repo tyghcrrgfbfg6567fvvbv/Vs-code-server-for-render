@@ -10,16 +10,17 @@ if ! command -v code-server &>/dev/null; then
   curl -fsSL https://code-server.dev/install.sh | sh -s -- --method=standalone --prefix=$HOME/.local
 fi
 
-# Ensure workspace directory exists
-mkdir -p /workspace
+# Use home folder instead of /workspace
+WORKDIR="$HOME/workspace"
+mkdir -p "$WORKDIR"
 
-# Default password if not set in Render ENV
+# Default password (or set in Render ENV)
 PASSWORD=${PASSWORD:-mysecret}
 
-echo "[INFO] Starting code-server on port ${PORT:-10000} ..."
+echo "[INFO] Starting code-server in $WORKDIR on port ${PORT:-10000} ..."
 exec "$HOME/.local/bin/code-server" \
   --bind-addr 0.0.0.0:${PORT:-10000} \
   --auth password \
   --disable-telemetry \
   --disable-update-check \
-  /workspace
+  "$WORKDIR"
