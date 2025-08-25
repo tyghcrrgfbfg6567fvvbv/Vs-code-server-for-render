@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
-export PATH="/opt/render/.local/bin:$PATH"
+# Ensure PATH includes code-server
+export PATH="$HOME/.local/bin:$PATH"
 
 PASSWORD=${PASSWORD:-mysecret}
 
