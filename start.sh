@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-# Default password if none set in Render environment
 PASSWORD=${PASSWORD:-mysecret}
 
 # Run code-server
@@ -10,4 +9,4 @@ exec code-server \
   --auth password \
   --disable-telemetry \
   --disable-update-check \
-  .
+  /workspace
