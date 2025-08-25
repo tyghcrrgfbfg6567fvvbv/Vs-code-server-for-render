@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 set -e
 
+export PATH="/opt/render/.local/bin:$PATH"
+
 PASSWORD=${PASSWORD:-mysecret}
 
-# Run code-server from local install
-exec $HOME/.local/bin/code-server \
+exec code-server \
   --bind-addr 0.0.0.0:${PORT:-10000} \
   --auth password \
   --disable-telemetry \
